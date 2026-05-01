@@ -1,0 +1,70 @@
+:root {
+  /* Hand-drawn healing color palette */
+  --color-bg-primary: #FFF8E7;
+  --color-bg-secondary: #FFDAB9;
+  --color-accent: #FF8A80;
+  --color-text-primary: #5D4E37;
+  --color-text-secondary: #8B7355;
+  --color-success: #90C9A7;
+  --color-warning: #FFD54F;
+  --color-danger: #E57373;
+  --color-cat-orange: #FFB74D;
+  --color-cat-dark: #E6952B;
+  --color-water: #81D4FA;
+  --color-litter: #D7CCC8;
+
+  /* Typography */
+  --font-family: 'Nunito', sans-serif;
+
+  /* Border radius */
+  --radius-small: 8px;
+  --radius-medium: 16px;
+  --radius-large: 24px;
+
+  /* Shadows */
+  --shadow-soft: 0 4px 12px rgba(93, 78, 55, 0.1);
+  --shadow-medium: 0 8px 24px rgba(93, 78, 55, 0.15);
+
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  overflow: hidden;
+}
+
+/* Hand-drawn style utilities */
+.hand-drawn-border {
+  border-radius: var(--radius-medium);
+  box-shadow: var(--shadow-soft);
+}
+
+.wobbly {
+  animation: wobbly 3s ease-in-out infinite;
+}
+
+@keyframes wobbly {
+  0%, 100% { transform: rotate(-1deg); }
+  50% { transform: rotate(1deg); }
+}
+
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');

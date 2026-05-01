@@ -1,0 +1,68 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-md) var(--space-lg);
+  background: var(--color-bg-secondary);
+  border-radius: 0 0 var(--radius-large) var(--radius-large);
+  box-shadow: var(--shadow-soft);
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.fishCount {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  background: var(--color-bg-primary);
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-medium);
+  border: 2px solid var(--color-water);
+}
+
+.center {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.settingsButton {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: var(--space-xs);
+  border-radius: var(--radius-small);
+  transition: background 0.2s;
+}
+
+.settingsButton:hover {
+  background: var(--color-bg-primary);
+}
+
+.resetButton {
+  background: none;
+  border: none;
+  font-size: 14px;
+  color: var(--color-danger);
+  cursor: pointer;
+  padding: var(--space-xs);
+  font-weight: 600;
+}
+
+.resetButton:hover {
+  text-decoration: underline;
+}

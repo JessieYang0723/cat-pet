@@ -1,0 +1,196 @@
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #87CEEB 0%, #98D8C8 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-lg);
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+}
+
+.gameArea {
+  position: relative;
+  width: 80%;
+  max-width: 400px;
+  height: 300px;
+  background: linear-gradient(180deg, rgba(135, 206, 235, 0.3) 0%, rgba(152, 216, 200, 0.5) 100%);
+  border-radius: var(--radius-large);
+  border: 4px solid var(--color-water);
+  overflow: hidden;
+}
+
+/* Dock/Pier */
+.dock {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: linear-gradient(180deg, #8B7355 0%, #6B5344 100%);
+  border-top: 4px solid #5D4E37;
+}
+
+.dock::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: repeating-linear-gradient(90deg, #5D4E37, #5D4E37 20px, transparent 20px, transparent 30px);
+}
+
+/* Fishing line */
+.fishingLine {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 80px;
+  background: #8B7355;
+  transform-origin: top center;
+}
+
+.hook {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  border: 3px solid #8B7355;
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  background: transparent;
+}
+
+/* Fish shadow */
+.fishShadow {
+  position: absolute;
+  bottom: 80px;
+  width: 60px;
+  height: 30px;
+  transition: left 0.1s linear;
+}
+
+.fish {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  animation: fishBounce 0.6s ease-in-out infinite;
+  cursor: pointer;
+}
+
+@keyframes fishBounce {
+  0%, 100% { transform: translateY(0) scaleX(1); }
+  50% { transform: translateY(-5px) scaleX(1.05); }
+}
+
+/* Catch zone */
+.catchZone {
+  position: absolute;
+  bottom: 60px;
+  height: 70px;
+  background: rgba(255, 138, 128, 0.3);
+  border: 3px dashed var(--color-accent);
+  border-radius: var(--radius-small);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s;
+}
+
+.catchZone.active {
+  background: rgba(144, 201, 167, 0.4);
+  border-color: var(--color-success);
+}
+
+.catchHint {
+  color: var(--color-text-primary);
+  font-size: 14px;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+/* Result message */
+.result {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  font-weight: 700;
+  padding: var(--space-md) var(--space-lg);
+  border-radius: var(--radius-medium);
+  animation: popIn 0.3s ease-out;
+  text-align: center;
+}
+
+.result.success {
+  background: var(--color-success);
+  color: white;
+}
+
+.result.fail {
+  background: var(--color-danger);
+  color: white;
+}
+
+@keyframes popIn {
+  0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+  70% { transform: translate(-50%, -50%) scale(1.1); }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+/* Instructions */
+.instructions {
+  margin-top: var(--space-lg);
+  font-size: 16px;
+  color: var(--color-text-secondary);
+  text-align: center;
+}
+
+/* Close button */
+.closeButton {
+  position: absolute;
+  top: var(--space-lg);
+  right: var(--space-lg);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-bg-primary);
+  border: 3px solid var(--color-text-secondary);
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+
+.closeButton:hover {
+  transform: scale(1.1);
+}
+
+/* Score display */
+.score {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-md);
+}

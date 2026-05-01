@@ -1,0 +1,354 @@
+.catContainer {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.cat {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.cat:hover {
+  transform: scale(1.05);
+}
+
+/* Cat body - orange tabby */
+.body {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 100px;
+  background: linear-gradient(135deg, var(--color-cat-orange) 0%, var(--color-cat-dark) 100%);
+  border-radius: 50% 50% 45% 45%;
+  box-shadow: inset -10px -10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Stripes on body */
+.body::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 80px;
+  height: 60px;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 8px,
+    rgba(230, 150, 43, 0.5) 8px,
+    rgba(230, 150, 43, 0.5) 12px
+  );
+  border-radius: 50%;
+}
+
+/* Head */
+.head {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 85px;
+  background: linear-gradient(135deg, var(--color-cat-orange) 0%, var(--color-cat-dark) 100%);
+  border-radius: 50% 50% 45% 45%;
+}
+
+/* Ears */
+.ears {
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ear {
+  width: 35px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--color-cat-orange) 0%, var(--color-cat-dark) 100%);
+  border-radius: 50% 50% 0 0;
+  position: relative;
+}
+
+.ear::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 25px;
+  background: #FFB74D;
+  border-radius: 50% 50% 0 0;
+}
+
+.ear.left {
+  transform: rotate(-15deg);
+}
+
+.ear.right {
+  transform: rotate(15deg);
+}
+
+/* Face */
+.face {
+  position: absolute;
+  top: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 50px;
+}
+
+/* Eyes */
+.eyes {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5px;
+}
+
+.eye {
+  width: 22px;
+  height: 22px;
+  background: #fff;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+}
+
+.eye::before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 8px;
+  width: 10px;
+  height: 12px;
+  background: #5D4E37;
+  border-radius: 50%;
+  animation: blink 4s infinite;
+}
+
+.eye::after {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 10px;
+  width: 4px;
+  height: 4px;
+  background: #fff;
+  border-radius: 50%;
+}
+
+@keyframes blink {
+  0%, 90%, 100% { transform: scaleY(1); }
+  95% { transform: scaleY(0.1); }
+}
+
+/* Sleeping eyes */
+.sleeping .eye::before {
+  top: 15px;
+  height: 3px;
+  border-radius: 0;
+  background: #5D4E37;
+}
+
+.sleeping .eye::after {
+  display: none;
+}
+
+/* Nose */
+.nose {
+  width: 12px;
+  height: 10px;
+  background: #E57373;
+  border-radius: 50% 50% 40% 40%;
+  margin: 5px auto 0;
+}
+
+/* Mouth */
+.mouth {
+  display: flex;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.mouthLine {
+  width: 10px;
+  height: 8px;
+  border-bottom: 2px solid #5D4E37;
+  border-radius: 0 0 50% 50%;
+}
+
+.mouthLine.left {
+  border-right: none;
+  border-radius: 0 0 0 50%;
+}
+
+.mouthLine.right {
+  border-left: none;
+  border-radius: 0 0 50% 0;
+}
+
+/* Whiskers */
+.whiskers {
+  position: absolute;
+  top: 35px;
+  width: 100%;
+}
+
+.whisker {
+  position: absolute;
+  width: 30px;
+  height: 2px;
+  background: #8B7355;
+  border-radius: 2px;
+}
+
+.whisker.left-1 { left: -15px; top: 0; transform: rotate(-10deg); }
+.whisker.left-2 { left: -18px; top: 8px; transform: rotate(0deg); }
+.whisker.left-3 { left: -15px; top: 16px; transform: rotate(10deg); }
+.whisker.right-1 { right: -15px; top: 0; transform: rotate(10deg); }
+.whisker.right-2 { right: -18px; top: 8px; transform: rotate(0deg); }
+.whisker.right-3 { right: -15px; top: 16px; transform: rotate(-10deg); }
+
+/* Tail */
+.tail {
+  position: absolute;
+  bottom: 30px;
+  right: 15px;
+  width: 60px;
+  height: 20px;
+  background: linear-gradient(90deg, var(--color-cat-orange), var(--color-cat-dark));
+  border-radius: 20px;
+  transform-origin: left center;
+  animation: tailWag 2s ease-in-out infinite;
+}
+
+@keyframes tailWag {
+  0%, 100% { transform: rotate(-10deg); }
+  50% { transform: rotate(15deg); }
+}
+
+/* Paws */
+.paws {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.paw {
+  width: 25px;
+  height: 20px;
+  background: var(--color-cat-orange);
+  border-radius: 50% 50% 40% 40%;
+}
+
+/* Animation states */
+.happy .tail {
+  animation: tailWag 0.8s ease-in-out infinite;
+}
+
+.content .tail {
+  animation: tailWag 3s ease-in-out infinite;
+}
+
+.hungry .head::after,
+.thirsty .head::after {
+  content: '?';
+  position: absolute;
+  top: -30px;
+  right: -20px;
+  font-size: 20px;
+  color: var(--color-warning);
+  animation: float 1.5s ease-in-out infinite;
+}
+
+.dirty .body {
+  background: linear-gradient(135deg, #A89B8C 0%, #8B7D6B 100%);
+}
+
+.dirty .body::before {
+  opacity: 0.5;
+}
+
+.tired .cat {
+  opacity: 0.8;
+}
+
+.sleeping .cat {
+  opacity: 0.9;
+}
+
+.sleeping .tail {
+  animation: none;
+  transform: rotate(-5deg);
+}
+
+.angry .ears {
+  transform: translateX(-50%) rotate(0);
+}
+
+.angry .ear.left {
+  transform: rotate(15deg);
+}
+
+.angry .ear.right {
+  transform: rotate(-15deg);
+}
+
+.angry .eye::before {
+  background: #E57373;
+}
+
+.angry .tail {
+  animation: tailWag 0.3s ease-in-out infinite;
+}
+
+/* Floating particles */
+.particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(-20px); opacity: 0.7; }
+}
+
+.heart {
+  color: var(--color-accent);
+  font-size: 16px;
+}
+
+.zzz {
+  color: var(--color-water);
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.sparkle {
+  color: var(--color-warning);
+  font-size: 12px;
+}

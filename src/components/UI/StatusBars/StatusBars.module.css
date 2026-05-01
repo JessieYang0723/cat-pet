@@ -1,0 +1,68 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.statRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.label {
+  width: 70px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.barContainer {
+  flex: 1;
+  height: 16px;
+  background: rgba(139, 115, 85, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.bar {
+  height: 100%;
+  border-radius: 8px;
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.bar.high {
+  background: linear-gradient(90deg, var(--color-success), #7BB88A);
+}
+
+.bar.medium {
+  background: linear-gradient(90deg, var(--color-warning), #FFC107);
+}
+
+.bar.low {
+  background: linear-gradient(90deg, var(--color-danger), #EF5350);
+  animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.value {
+  width: 35px;
+  text-align: right;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.icon {
+  font-size: 14px;
+  width: 20px;
+  text-align: center;
+}
